@@ -1,16 +1,22 @@
 import pandas as pd
 
 
-def prob(x: pd.DataFrame):
+def prob(p: pd.DataFrame, given=None) -> pd.DataFrame:
+    if given is not None:
+        return cprobs(p, given)
+    return jprobs(p)
+
+
+def jprobs(x: pd.DataFrame) -> pd.DataFrame:
     x_cols = list(x)
     total_count = len(x)
-    x['probability'] = 0.0
+    x['prob'] = 0.0
     x = x.groupby(x_cols).count()
-    x['probability'] = x['probability'] / total_count
-    return x.to_dict()['probability']
+    x['prob'] = x['prob'] / total_count
+    return x
 
 
-def cprob(hyp: pd.DataFrame, given: pd.DataFrame):
+def cprobs(hyp: pd.DataFrame, given: pd.DataFrame) -> pd.DataFrame:
     """
     Conditional Probability - P( hyp | given )
     The probability of 'hyp' in state 'h' given that.. 'given' is in stage 'g'
@@ -54,8 +60,8 @@ def cprob(hyp: pd.DataFrame, given: pd.DataFrame):
     # Calculate the conditional probabilities by taking the
     # sum of each distinct combination of all cols, divided
     # by the sum for each group relative to the 'give' columns.
-    df['probability'] = df['sum'] / df['g_sum']
+    df['prob'] = df['sum'] / df['g_sum']
     df = df.drop('g_sum', axis=1)
     df = df.drop('sum', axis=1)
 
-    return df.to_dict()['probability']
+    return df

@@ -1,5 +1,6 @@
 import pandas as pd
-
+import math
+from probability import mvprob
 
 class EntroPy(object):
 
@@ -21,10 +22,10 @@ class EntroPy(object):
 
     @staticmethod
     def shannon_entropy(p: pd.DataFrame, given=None):
-        p['p'] = 0.0
-        p = p.groupby([0]).count()
-        p['p'] = p['0'] / len(p)
-        pass
+        pdf = mvprob.prob(p, given)
+        pdf['given_prob'] = mvprob.prob(p, given) if given is not None else 1.0
+        pdf = pdf.apply(lambda e: e.iloc[0] * math.log2(e.iloc[1]/e.iloc[0]))
+        return pdf.sum()
 
     @staticmethod
     def reyi_entropy(p, a):
