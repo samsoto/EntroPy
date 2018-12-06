@@ -1,35 +1,42 @@
 import pandas as pd
 
 
-def prob(p: pd.DataFrame, given=None) -> pd.DataFrame:
-    if given is not None:
-        return cprobs(p, given)
-    return jprobs(p)
+PROB_COLUMN_NAME = 'prob'
 
 
-def jprobs(x: pd.DataFrame) -> pd.DataFrame:
-    x_cols = list(x)
-    total_count = len(x)
-    x['prob'] = 0.0
-    x = x.groupby(x_cols).count()
-    x['prob'] = x['prob'] / total_count
-    return x
+def probs(p: pd.DataFrame, given: pd.DataFrame=None) -> pd.DataFrame:
+    return jprobs(p) if given is None \
+        else cprobs(p, given)
 
 
-def cprobs(hyp: pd.DataFrame, given: pd.DataFrame) -> pd.DataFrame:
+def jprobs(p: pd.DataFrame) -> pd.DataFrame:
+    """
+    Joint Probability Distribution Function
+    :param: A list of
+    :return:
+    """
+    p_cols = list(p)
+    total_count = len(p)
+    p[PROB_COLUMN_NAME] = 0.0
+    p = p.groupby(p_cols).count()
+    foo = p[PROB_COLUMN_NAME] / total_count
+    p[PROB_COLUMN_NAME] = foo
+    return p
+
+
+def cprobs(hyp: pd.DataFrame, given: pd.DataFrame=None) -> pd.DataFrame:
     """
     Conditional Probability - P( hyp | given )
     The probability of 'hyp' in state 'h' given that.. 'given' is in stage 'g'
     Strategy: Group by all of the columns (hyp + given) and find the total.
-    Then group by the 'given' columns and find the totals, relative the the
-    'given'. Then divide these two to find the conditional probabilities
+    Then group by the 'given' columns and find the totals relative to the
+    'given' cols. Then divide these two totals to find the conditional probabilities
     :param hyp: The hypothesis variable.
     :param given: The given variable
-    :return: A dictionary of the conditional probability, P( hyp | given )
-    Key: 'give'
-    Value: ''
+    :return: A DataFrame of the conditional probabilities, P( hyp | given )
+    Key: '(hyp, give)'
+    Value: Conditional probabilities
     """
-
     # Get column names
     hyp_cols = list(hyp)
     given_cols = list(given)
