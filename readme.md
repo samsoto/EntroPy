@@ -37,6 +37,8 @@ In mathematical statistics, the Kullback–Leibler divergence (also called relat
 
 n information theory, the conditional entropy (or equivocation) quantifies the amount of information needed to describe the outcome of a random variable *y* given that the value of another random variable *x* is known.
 
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg/256px-Entropy-mutual-information-relative-entropy-relation-diagram.svg.png)
+
 <div style="background-color:rgba(255, 255, 255, 0.8); text-align:center; vertical-align: middle; padding:10px 0;">
 <img src="http://www.sciweavers.org/upload/Tex2Img_1544155968/eqn.png" />
  </div>
