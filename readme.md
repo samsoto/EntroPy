@@ -1,3 +1,15 @@
+# Entropy Wiki
+
+| **Type**            | **Equation**                                                                                     | **Venn Diagram**                                                                                  |
+|---------------------|--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------:|
+| Entropy             | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_entropy.png)             |                                                                                                   |
+| Cross Entropy       | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_cross_entropy.png)       | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_cross_entropy.png)       |
+| Relative Entropy    | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_relative_entropy.png)    | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_relative_entropy.png)    |
+| Joint Entropy       | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_joint_entropy.png)       | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_joint_entropy.png)       |
+| Conditional Entropy | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_conditional_entropy.png) | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_conditional_entropy.png) |
+| Mutual Information  | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_mutual_information.png)  | ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_mutual_information.png)  |
+
+
 # Entropy
 
 Information entropy is the average rate at which information is produced by a stochastic source of data. The measure of information entropy associated with each possible data value
@@ -13,7 +25,9 @@ In information theory, the cross entropy between two probability distributions *
 
 ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_cross_entropy.png)
 
-# Kullback-Liebler Divergence
+# Relative Entropy 
+### ***(Kullback-Liebler Divergence)***
+
 
 In mathematical statistics, the Kullback–Leibler divergence (also called relative entropy) is a measure of how one probability distribution is different from a second, reference probability distribution.
 
@@ -25,9 +39,9 @@ In mathematical statistics, the Kullback–Leibler divergence (also called relat
 
 In information theory, joint entropy is a measure of the uncertainty associated with a set of variables.
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_mutual_information.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_joint_entropy.png)
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_mutual_information.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_joint_entropy.png)
 
 
 # Conditional Entropy
