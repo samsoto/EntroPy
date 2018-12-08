@@ -25,7 +25,7 @@ In information theory, the cross entropy between two probability distributions *
 
 In mathematical statistics, the Kullback–Leibler divergence (also called relative entropy) is a measure of how one probability distribution is different from a second, reference probability distribution.
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn-kl-div.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_kl_div.png)
 
 ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/equ_kl_divergence.png)
 
@@ -33,7 +33,7 @@ In mathematical statistics, the Kullback–Leibler divergence (also called relat
 
 n information theory, the conditional entropy (or equivocation) quantifies the amount of information needed to describe the outcome of a random variable *y* given that the value of another random variable *x* is known.
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn-cond_entropy.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_cond_entropy.png)
 
 ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/equ_cond_entropy.png)
 
@@ -41,7 +41,7 @@ n information theory, the conditional entropy (or equivocation) quantifies the a
 
 In probability theory and information theory, the mutual information (MI) of two random variables is a measure of the mutual dependence between the two variables.
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn-mi.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_mi.png)
 
 ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/equ_mi.png)
 
