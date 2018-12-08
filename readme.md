@@ -25,9 +25,9 @@ In mathematical statistics, the Kullback–Leibler divergence (also called relat
 
 In information theory, joint entropy is a measure of the uncertainty associated with a set of variables.
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_mutual_information.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn_joint_entropy.png)
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_mutual_information.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_joint_entropy.png)
 
 
 # Conditional Entropy
