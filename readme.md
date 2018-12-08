@@ -25,13 +25,15 @@ In information theory, the cross entropy between two probability distributions *
 
 In mathematical statistics, the Kullback–Leibler divergence (also called relative entropy) is a measure of how one probability distribution is different from a second, reference probability distribution.
 
-![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn-kl_divergence.png)
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn-kl-divergence.png)
 
 ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/equ_kl_divergence.png)
 
 # Conditional Entropy
 
 n information theory, the conditional entropy (or equivocation) quantifies the amount of information needed to describe the outcome of a random variable *y* given that the value of another random variable *x* is known.
+
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/venn-cond_entropy.png)
 
 ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/equ_cond_entropy.png)
 
