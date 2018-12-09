@@ -16,6 +16,12 @@ Information entropy is the average rate at which information is produced by a st
 
 ![](https://github.com/samsoto/EntroPy/blob/master/resources/images/tex_entropy.png)
 
+## Encoding
+
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/img_encoding_optimal.png)
+
+![](https://github.com/samsoto/EntroPy/blob/master/resources/images/img_encoding_nonoptimal.png)
+
  
 # Cross Entropy
 
