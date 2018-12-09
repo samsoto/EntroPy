@@ -2,12 +2,13 @@
 
 | **TYPE**            | **EQUATION**                                                                                     | **VENN DIAGRAM**                                                                                  |
 |---------------------|--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------:|
-| [Entropy](#entropy)             | ![](./resources/images/tex_entropy.png)             |                                                                                                   |
-| [Cross Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#cross-entropy)       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy_2.png)       |
-| [Relative Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#relative-entropy)       | ![](./resources/images/tex_relative_entropy.png)       | ![](./resources/images/venn_relative_entropy.png)       |
-| [Joint Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#joint-entropy)       | ![](./resources/images/tex_joint_entropy.png)       | ![](./resources/images/venn_joint_entropy.png)       |
-| [Conditional Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#conditional-entropy) | ![](./resources/images/tex_conditional_entropy.png) | ![](./resources/images/venn_conditional_entropy.png) |
-| [Mutual Information](https://github.com/samsoto/EntroPy/blob/master/readme.md#mutual-information)  | ![](./resources/images/tex_mutual_information.png)  | ![](./resources/images/venn_mutual_information.png)  |
+| [Entropy](#entropy)             | ![](./resources/images/tex_entropy.png)             |                                               (./resources/images/venn_entropy.png)         |
+| [Cross Entropy](#cross-entropy)       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy_2.png)       |
+| [Relative Entropy](#relative-entropy)       | ![](./resources/images/tex_relative_entropy.png)       | ![](./resources/images/venn_relative_entropy_2.png)       |
+| [Joint Entropy](#joint-entropy)       | ![](./resources/images/tex_joint_entropy.png)       | ![](./resources/images/venn_joint_entropy.png)       |
+| [Conditional Entropy](#conditional-entropy) | ![](./resources/images/tex_conditional_entropy.png) | ![](./resources/images/venn_conditional_entropy.png) |
+| [Mutual Information](#mutual-information)  | ![](./resources/images/tex_mutual_information.png)  | ![](./resources/images/venn_mutual_information.png)  |
+| [Independent Entropy](#independent-entropy)  | ![](./resources/images/tex_independent_entropy.png)  | ![](./resources/images/venn_independent_entropy.png)  |
 
 
 # Entropy
