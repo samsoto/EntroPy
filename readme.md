@@ -32,33 +32,20 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
 ![](./resources/images/entropy_intro/tree_basic.png)
 
 
-|                         **Example 1**                        	|                         **Example 2**                         |
-|:------------------------------------------------------------:	|:------------------------------------------------------------:	|
-| ![](./resources/images/entropy_intro/symbol_a_alice_bob.png) 	| ![](./resources/images/entropy_intro/symbol_b_alice_bob.png) 	|
+|                        **Example 1**                       	|       	|                       **Example 2**                      	|
+|:----------------------------------------------------------:	|-------	|:--------------------------------------------------------:	|
+| ![](./resources/images/intro/symbol_a_alice_bob.png)       	|       	| ![](./resources/images/intro/symbol_b_alice_bob.png)     	|
+| ![](./resources/images/intro/symbol_a_questons.png)        	|       	| ![](./resources/images/intro/symbol_b_questons.png)      	|
+| ![](./resources/images/intro/symbol_a_num_questions_2.png) 	|       	| ![](./resources/images/intro/symbol_b_num_questions.png) 	|
 
-
-### Set 1
-
-![](./resources/images/entropy_intro/symbol_a_alice_bob.png)
-
-
-| ![](./resources/images/entropy_intro/symbol_a_alice_bob.png) |       | ![](./resources/images/entropy_intro/symbol_b_alice_bob.png) |
-|--------------------------------------------------------------|-------|--------------------------------------------------------------|
-
-### Set 2
-
-![](./resources/images/entropy_intro/symbol_b_alice_bob.png)
-
-| ![](./resources/images/entropy_intro/symbol_b_questons.png) | ![](./resources/images/entropy_intro/symbol_b_num_questions.png) |
-|-------------------------------------------------------------|-------------------------------------------------------------|
 
 # Entropy Equation
 
-![](./resources/images/entropy_intro/entropy_explain_1.png)
+![](./resources/images/intro/entropy_explain_1.png)
 
-![](./resources/images/entropy_intro/entropy_explain_2.png)
+![](./resources/images/intro/entropy_explain_2.png)
 
-![](./resources/images/entropy_intro/entropy_explain_3.png)
+![](./resources/images/intro/entropy_explain_3.png)
 
 
 
