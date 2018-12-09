@@ -32,24 +32,12 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
 ![](./resources/images/entropy_intro/tree_basic.png)
 
 
-|                     **Example 1**                    	|       	|                     **Example 2**                    	|
-|:----------------------------------------------------:	|-------	|:----------------------------------------------------:	|
-| ![](./resources/images/intro/symbol_a_alice_bob.png) 	|       	| ![](./resources/images/intro/symbol_b_alice_bob.png) 	|
+|                        **Example 1**                       	|       	|                       **Example 2**                      	|
+|:----------------------------------------------------------:	|-------	|:--------------------------------------------------------:	|
+| ![](./resources/images/intro/symbol_a_alice_bob.png)       	|       	| ![](./resources/images/intro/symbol_b_alice_bob.png)     	|
+| ![](./resources/images/intro/symbol_a_questons.png)        	|       	| ![](./resources/images/intro/symbol_b_questons.png)      	|
+| ![](./resources/images/intro/symbol_a_num_questions_2.png) 	|       	| ![](./resources/images/intro/symbol_b_num_questions.png) 	|
 
-### Set 1
-
-![](./resources/images/intro/symbol_a_alice_bob.png)
-
-
-| ![](./resources/images/intro/symbol_a_questons.png) |       | ![](./resources/images/intro/symbol_a_num_questions_2.png)  |
-|-----------------------------------------------------|-------|-------------------------------------------------------------|
-
-### Set 2
-
-![](./resources/images/intro/symbol_b_alice_bob.png)
-
-| ![](./resources/images/intro/symbol_b_questons.png) |       | ![](./resources/images/intro/symbol_b_num_questions.png)    |
-|-----------------------------------------------------|-------|-------------------------------------------------------------|
 
 # Entropy Equation
 
