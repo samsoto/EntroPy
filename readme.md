@@ -65,7 +65,7 @@ In information theory, the cross entropy between two probability distributions *
 
 In mathematical statistics, the Kullback–Leibler divergence (also called relative entropy) is a measure of how one probability distribution is different from a second, reference probability distribution.
 
-![](./resources/images/venn_relative_entropy.png)
+![](./resources/images/venn_relative_entropy_2.png)
 
 ![](./resources/images/tex_relative_entropy.png)
 
@@ -94,3 +94,12 @@ In probability theory and information theory, the mutual information (MI) of two
 
 ![](./resources/images/tex_mutual_information.png)
 
+
+# Independent Entropy
+### ***(Soto Entropy)***
+
+In probability theory and information theory, the mutual information (MI) of two random variables is a measure of the mutual dependence between the two variables.
+
+![](./resources/images/venn_independent_entropy.png)
+
+![](./resources/images/tex_independent_entropy.png)
