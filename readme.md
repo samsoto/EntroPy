@@ -23,7 +23,7 @@ Information entropy is the average rate at which information is produced by a st
 
 ### Set 1
 
-![](./resources/images/entropy_intro/symbol_a_probs.png)
+![](./resources/images/entropy_intro/symbol_a_alice_bob.png)
 
 
 | ![](./resources/images/entropy_intro/symbol_a_questons.png) | ![](./resources/images/entropy_intro/symbol_a_encoding.png) |
@@ -31,7 +31,7 @@ Information entropy is the average rate at which information is produced by a st
 
 ### Set 2
 
-![](./resources/images/entropy_intro/symbol_b_probs.png)
+![](./resources/images/entropy_intro/symbol_b_alice_bob.png)
 
 | ![](./resources/images/entropy_intro/symbol_b_questons.png) | ![](./resources/images/entropy_intro/symbol_b_encoding.png) |
 |-------------------------------------------------------------|-------------------------------------------------------------|
