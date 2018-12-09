@@ -2,7 +2,7 @@
 
 | **Type**            | **Equation**                                                                                     | **Venn Diagram**                                                                                  |
 |---------------------|--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------:|
-| Entropy             | ![](./resources/images/tex_entropy.png)             |                                                                                                   |
+| [Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#entropy)             | ![](./resources/images/tex_entropy.png)             |                                                                                                   |
 | Cross Entropy       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy_2.png)     |
 | Relative Entropy    | ![](./resources/images/tex_relative_entropy.png)    | ![](./resources/images/venn_relative_entropy.png)    |
 | Joint Entropy       | ![](./resources/images/tex_joint_entropy.png)       | ![](./resources/images/venn_joint_entropy.png)       |
