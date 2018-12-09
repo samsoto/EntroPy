@@ -3,7 +3,7 @@
 | **Type**            | **Equation**                                                                                     | **Venn Diagram**                                                                                  |
 |---------------------|--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------:|
 | [Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#entropy)             | ![](./resources/images/tex_entropy.png)             |                                                                                                   |
-| [Cross Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#cross-entropy)       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy.png)       |
+| [Cross Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#cross-entropy)       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy_2.png)       |
 | [Relative Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#relative-entropy)       | ![](./resources/images/tex_relative_entropy.png)       | ![](./resources/images/venn_relative_entropy.png)       |
 | [Joint Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#joint-entropy)       | ![](./resources/images/tex_joint_entropy.png)       | ![](./resources/images/venn_joint_entropy.png)       |
 | [Conditional Entropy](https://github.com/samsoto/EntroPy/blob/master/readme.md#conditional-entropy) | ![](./resources/images/tex_conditional_entropy.png) | ![](./resources/images/venn_conditional_entropy.png) |
@@ -27,7 +27,7 @@ Entropy is a measure of how unpredictable something is. **High Unpredictability,
 
 ### **Relationship between Probabilities and YES/NO Questions**
 
-We will now explain how **Unpredictability** and **Entropy.** are related. 
+We will now explain how **Unpredictability** and **Entropy.** are related, and in doing so we will learn a relationship between the **Probability* of a random variable, ***X*** in state ***x***, occurring and the number of **YES/NO Questions** it would take to figure out what what state ***X*** is in.
 
 ![](./resources/images/entropy_intro/tree_basic.png)
 
