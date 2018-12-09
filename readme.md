@@ -3,7 +3,7 @@
 | **Type**            | **Equation**                                                                                     | **Venn Diagram**                                                                                  |
 |---------------------|--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------:|
 | Entropy             | ![](./resources/images/tex_entropy.png)             |                                                                                                   |
-| Cross Entropy       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy.png)       |
+| Cross Entropy       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy_2.png)     |
 | Relative Entropy    | ![](./resources/images/tex_relative_entropy.png)    | ![](./resources/images/venn_relative_entropy.png)    |
 | Joint Entropy       | ![](./resources/images/tex_joint_entropy.png)       | ![](./resources/images/venn_joint_entropy.png)       |
 | Conditional Entropy | ![](./resources/images/tex_conditional_entropy.png) | ![](./resources/images/venn_conditional_entropy.png) |
@@ -26,14 +26,14 @@ Information entropy is the average rate at which information is produced by a st
 ![](./resources/images/entropy_intro/symbol_a_alice_bob.png)
 
 
-| ![](./resources/images/entropy_intro/symbol_a_questons.png) | ![](./resources/images/entropy_intro/symbol_a_encoding.png) |
+| ![](./resources/images/entropy_intro/symbol_a_questons.png) | ![](./resources/images/entropy_intro/symbol_a_num_questions.png) |
 |-------------------------------------------------------------|-------------------------------------------------------------|
 
 ### Set 2
 
 ![](./resources/images/entropy_intro/symbol_b_alice_bob.png)
 
-| ![](./resources/images/entropy_intro/symbol_b_questons.png) | ![](./resources/images/entropy_intro/symbol_b_encoding.png) |
+| ![](./resources/images/entropy_intro/symbol_b_questons.png) | ![](./resources/images/entropy_intro/symbol_b_num_questions.png) |
 |-------------------------------------------------------------|-------------------------------------------------------------|
 
 # Entropy Equation
@@ -51,7 +51,7 @@ Information entropy is the average rate at which information is produced by a st
 
 In information theory, the cross entropy between two probability distributions *p* and *q* over the same underlying set of events measures the average number of bits needed to identify an event drawn from the set, if a coding scheme is used that is optimized for an "artificial" probability distribution *q*, rather than the "true" distribution *p*.
 
-![](./resources/images/venn_cross_entropy.png)
+![](./resources/images/venn_cross_entropy_2.png)
 
 ![](./resources/images/tex_cross_entropy.png)
 
