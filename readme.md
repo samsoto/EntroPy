@@ -16,7 +16,18 @@ Information entropy is the average rate at which information is produced by a st
 
 ![](./resources/images/tex_entropy.png)
 
-## Encoding
+## What is Entropy?
+
+Entropy is a measure of how unpredictable an event is. **High Unpredictability, High Entropy.** For example image you opened a book and, without looking, point to a random letter anywhere in the book. If you were told you would win a million dollars if you can  correctly guess the letter. What letter would you choose? 
+
+![](./resources/images/entropy_intro/letter_frequency.png)
+
+Looking at the leter frequencies for English we can see that some letter are more frequent than others. Thus we have some hope in predicting which letter it is!
+
+
+### **Relationship between Probabilities and YES/NO Questions**
+
+We will now explain how **Unpredictability** and **Entropy.** are related. 
 
 ![](./resources/images/entropy_intro/tree_basic.png)
 
