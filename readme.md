@@ -41,15 +41,15 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
 ![](./resources/images/intro/symbol_a_alice_bob.png)
 
 
-| ![](./resources/images/intro/symbol_a_alice_bob.png) |       | ![](./resources/images/intro/symbol_b_alice_bob.png) |
-|-------------------------------------------------- ---|-------|------------------------------------------------------|
+| ![](./resources/images/intro/symbol_a_questons.png) |       | ![](./resources/images/intro/symbol_a_num_questions_2.png)  |
+|-----------------------------------------------------|-------|-------------------------------------------------------------|
 
 ### Set 2
 
 ![](./resources/images/intro/symbol_b_alice_bob.png)
 
-| ![](./resources/images/intro/symbol_b_questons.png) | ![](./resources/images/intro/symbol_b_num_questions.png) |
-|-------------------------------------------------------------|-------------------------------------------------------------|
+| ![](./resources/images/intro/symbol_b_questons.png) |       | ![](./resources/images/intro/symbol_b_num_questions.png)    |
+|-----------------------------------------------------|-------|-------------------------------------------------------------|
 
 # Entropy Equation
 
