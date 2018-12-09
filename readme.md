@@ -20,23 +20,31 @@ Information entropy is the average rate at which information is produced by a st
 
 ![](./resources/images/entropy_intro/tree_basic.png)
 
+
+### Set 1
+
 ![](./resources/images/entropy_intro/symbol_a_probs.png)
+
+
+| ![](./resources/images/entropy_intro/symbol_a_questons.png) | ![](./resources/images/entropy_intro/symbol_a_encoding.png) |
+|-------------------------------------------------------------|-------------------------------------------------------------|
+
+### Set 2
 
 ![](./resources/images/entropy_intro/symbol_b_probs.png)
 
-![](./resources/images/entropy_intro/symbol_a_questons.png)
+| ![](./resources/images/entropy_intro/symbol_b_questons.png) | ![](./resources/images/entropy_intro/symbol_b_encoding.png) |
+|-------------------------------------------------------------|-------------------------------------------------------------|
 
-![](./resources/images/entropy_intro/symbol_b_questons.png)
-
-![](./resources/images/entropy_intro/symbol_a_encoding.png)
-
-![](./resources/images/entropy_intro/symbol_b_encoding.png)
+# Entropy Equation
 
 ![](./resources/images/entropy_intro/entropy_explain_1.png)
 
 ![](./resources/images/entropy_intro/entropy_explain_2.png)
 
 ![](./resources/images/entropy_intro/entropy_explain_3.png)
+
+
 
  
 # Cross Entropy
