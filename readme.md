@@ -32,13 +32,14 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
 
 ![](./resources/images/entropy_intro/tree_basic.png)
 
-
-|                        **Example 1**                       	|       	|                       **Example 2**                      	|
-|:----------------------------------------------------------:	|-------	|:--------------------------------------------------------:	|
-| ![](./resources/images/intro/symbol_a_alice_bob.png)       	|       	| ![](./resources/images/intro/symbol_b_alice_bob.png)     	|
-| ![](./resources/images/intro/symbol_a_questons.png)        	|       	| ![](./resources/images/intro/symbol_b_questons.png)      	|
-| ![](./resources/images/intro/symbol_a_num_questions_2.png) 	|       	| ![](./resources/images/intro/symbol_b_num_questions.png) 	|
-
+|                                                                                                   **Example 1**                                                                                                   	|       	|                                                                                                   **Example 2**                                                                                                   	|
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:	|-------	|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:	|
+| In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask? 	|       	| In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask? 	|
+| ![](./resources/images/intro/symbol_a_alice_bob.png)                                                                                                                                                              	|       	| ![](./resources/images/intro/symbol_b_alice_bob.png)                                                                                                                                                              	|
+| In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask? 	|       	| In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask? 	|
+| ![](./resources/images/intro/symbol_a_questons.png)                                                                                                                                                               	|       	| ![](./resources/images/intro/symbol_b_questons.png)                                                                                                                                                               	|
+| In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask? 	|       	| In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask? 	|
+| ![](./resources/images/intro/symbol_a_num_questions_2.png)                                                                                                                                                        	|       	| ![](./resources/images/intro/symbol_b_num_questions.png)                                                                                                                                                          	|
 
 # Entropy Equation
 
