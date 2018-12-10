@@ -97,7 +97,6 @@ In probability theory and information theory, the mutual information (MI) of two
 
 
 # Independent Entropy
-### ***(Soto Entropy)***
 
 In probability theory and information theory, the mutual information (MI) of two random variables is a measure of the mutual dependence between the two variables.
 
