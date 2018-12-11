@@ -48,11 +48,19 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
     <td width="50%" align="center"><img src="./resources/images/intro/symbol_b_alice_bob.png" /></td>
   </tr>
   <tr>
+    <td width="50%" align="center">In Example 1 Alice selects a random letter A, B, C, or D. Each with a 1/4 chance of being selected. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
+    <td width="50%" align="center">In Example 2 Alice again selects a random letter, but this time the probabilities of each letter has changed to: A = 1/2, B = 1/4, C = 1/8 and D = 1/8. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
+  </tr>
+  <tr>
     <td width="50%" align="center"><img src="./resources/images/intro/symbol_a_questons.png" /></td>
     <td width="50%" align="center"><img src="./resources/images/intro/symbol_b_questons.png" /></td>
   </tr>
   <tr>
-    <td width="50%" align="center"><img src="./resources/images/intro/symbol_a_num_questions.png" /></td>
+    <td width="50%" align="center">In Example 1 Alice selects a random letter A, B, C, or D. Each with a 1/4 chance of being selected. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
+    <td width="50%" align="center">In Example 2 Alice again selects a random letter, but this time the probabilities of each letter has changed to: A = 1/2, B = 1/4, C = 1/8 and D = 1/8. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="./resources/images/intro/symbol_a_num_questions_2.png" /></td>
     <td width="50%" align="center"><img src="./resources/images/intro/symbol_b_num_questions.png" /></td>
   </tr>
 </table>
