@@ -33,41 +33,35 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
 ![](./resources/images/entropy_intro/tree_basic.png)
 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
+
 <table class="tg">
   <tr>
-    <th class="tg-c3ow">**Example 1**</th>
-    <th class="tg-c3ow">**Example 2**</th>
+    <th class="tg-c3ow"><b>Example 1</b></th>
+    <th class="tg-c3ow"><b>Example 2</b></th>
   </tr>
   <tr>
     <td class="tg-0pky">In Example 1 Alice selects a random letter A, B, C, or D. Each with a 1/4 chance of being selected. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
     <td class="tg-0pky">In Example 2 Alice again selects a random letter, but this time the probabilities of each letter has changed to: A = 1/2, B = 1/4, C = 1/8 and D = 1/8. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
   </tr>
   <tr>
-    <td class="tg-0pky">![](./resources/images/intro/symbol_a_alice_bob.png)</td>
-    <td class="tg-0pky">![](./resources/images/intro/symbol_b_alice_bob.png)</td>
+    <td class="tg-c3ow" align="center"><img src="./resources/images/intro/symbol_a_alice_bob.png" /></td>
+    <td class="tg-c3ow" align="center"><img src="./resources/images/intro/symbol_b_alice_bob.png" /></td>
   </tr>
   <tr>
     <td class="tg-0pky">In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask?</td>
     <td class="tg-0pky">In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask?</td>
   </tr>
   <tr>
-    <td class="tg-0pky">![](./resources/images/intro/symbol_a_questons.png)</td>
-    <td class="tg-0pky">![](./resources/images/intro/symbol_b_questons.png)</td>
+    <td class="tg-0pky" align="center"><img src="./resources/images/intro/symbol_a_questons.png /></td>
+    <td class="tg-0pky" align="center"><img src="./resources/images/intro/symbol_b_questons.png /></td>
   </tr>
   <tr>
     <td class="tg-0pky">In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask?</td>
     <td class="tg-0pky">In example 1 Alice randomly selects a letter, where A, B, C, and D are all selected 25% of the time. If Bob has to guess with YES/NO question, How many questions on average would you expect Bob to have to ask?</td>
   </tr>
   <tr>
-    <td class="tg-0pky">![](./resources/images/intro/symbol_a_num_questions_2.png)</td>
-    <td class="tg-0pky">![](./resources/images/intro/symbol_b_num_questions.png)</td>
+    <td class="tg-0pky" align="center"><img src="./resources/images/intro/symbol_a_num_questions_2.png" /></td>
+    <td class="tg-0pky" align="center"><img src="./resources/images/intro/symbol_b_num_questions.png" /></td>
   </tr>
 </table>
 
