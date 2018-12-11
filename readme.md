@@ -49,10 +49,12 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
   </tr>
   <tr>
     <td width="100%" colspan="2">
-    <p>Entropy is defined as the average number of yes/no question. To calculate the entropy we will figure out how many YES/NO each example requires. The most effcient way to guess the letter is to ask questions that split the remain choses in half.</p>
+      <p>Entropy is defined as the average number of yes/no question. To calculate the entropy we will figure out how many YES/NO each example requires. The most effcient way to guess the letter is to ask questions that split the remain choses in half.</p>
     </td>
+    </tr>
+    <tr> 
     <td width="100%" align="center" colspan="2">
-    <img height="70%" widtch="70%" src="./resources/images/intro/entropy_explain_1.png" />
+      <img height="70%" widtch="70%" src="./resources/images/intro/entropy_explain_1.png" />
     </td>
   </tr>
   <tr>
@@ -65,7 +67,7 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
   </tr>
   <tr>
     <td width="100%" colspan="2" align="center">
-    <img height="70%" widtch="70%" src="./resources/images/intro/entropy_explain_2.png" />
+      <img height="70%" widtch="70%" src="./resources/images/intro/entropy_explain_2.png" />
     </td>
   </tr>
   <tr>
