@@ -48,7 +48,12 @@ We will now explain how **Unpredictability** and **Entropy.** are related, and i
     <td width="50%" align="center"><img src="./resources/images/intro/symbol_b_alice_bob.png" /></td>
   </tr>
   <tr>
-    <td width="50%">In Example 1 Alice selects a random letter A, B, C, or D. Each with a 1/4 chance of being selected. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
+    <td width="100%" align="center">
+    <img height="70%" widtch="70%" src="./resources/images/intro/entropy_explain_1.png />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">In Example 1 The most efficient way for Bob to guess, with YES/NO question, which letter Alice chose is to make guesses that split the remaining choses in half. The following is an example for the give probabilities.</td>
     <td width="50%">In Example 2 Alice again selects a random letter, but this time the probabilities of each letter has changed to: A = 1/2, B = 1/4, C = 1/8 and D = 1/8. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
   </tr>
   <tr>
