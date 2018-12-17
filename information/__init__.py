@@ -1,1 +1,1 @@
-from information.TrEntropy import TrEntropy
+from information.EntroPy import EntroPy

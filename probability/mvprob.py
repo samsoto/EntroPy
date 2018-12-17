@@ -4,6 +4,12 @@ import pandas as pd
 PROB_COLUMN_NAME = 'prob'
 
 
+def probs_dict(p: pd.DataFrame, given: pd.DataFrame=None) -> dict:
+    p = probs(p, given)
+    p = p.to_dict()[PROB_COLUMN_NAME]
+    return p
+
+
 def probs(p: pd.DataFrame, given: pd.DataFrame=None) -> pd.DataFrame:
     return jprobs(p) if given is None \
         else cprobs(p, given)
@@ -19,8 +25,8 @@ def jprobs(p: pd.DataFrame) -> pd.DataFrame:
     total_count = len(p)
     p[PROB_COLUMN_NAME] = 0.0
     p = p.groupby(p_cols).count()
-    foo = p[PROB_COLUMN_NAME] / total_count
-    p[PROB_COLUMN_NAME] = foo
+    prob = p[PROB_COLUMN_NAME] / total_count
+    p[PROB_COLUMN_NAME] = prob
     return p
 
 
