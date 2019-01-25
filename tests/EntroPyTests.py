@@ -1,4 +1,4 @@
-from information.EntroPy import EntroPy
+from information.entropy2 import EntroPy
 import pandas as pd
 import unittest
 

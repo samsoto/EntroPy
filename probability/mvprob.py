@@ -1,36 +1,40 @@
+from pandas import DataFrame
 import pandas as pd
+import numpy as np
+
+PROB_COL = 'prob'
 
 
-PROB_COLUMN_NAME = 'prob'
+def probs_dict(p: DataFrame, given: DataFrame=None) -> dict:
+    return probs(p, given=given, reset_index=False).to_dict()[PROB_COL]
 
 
-def probs_dict(p: pd.DataFrame, given: pd.DataFrame=None) -> dict:
-    p = probs(p, given)
-    p = p.to_dict()[PROB_COLUMN_NAME]
-    return p
+def probs(p: DataFrame, key: str=None, given: DataFrame=None, reset_index: bool=True) -> DataFrame:
+    p = p.copy()
+    df = jprobs(p) if given is None else cprobs(p, given=given)
+    col = f'{PROB_COL}_{key}'
+    df.columns = [col]
+    df = df.reset_index() if reset_index else df
+    return df
 
 
-def probs(p: pd.DataFrame, given: pd.DataFrame=None) -> pd.DataFrame:
-    return jprobs(p) if given is None \
-        else cprobs(p, given)
-
-
-def jprobs(p: pd.DataFrame) -> pd.DataFrame:
+def jprobs(p: DataFrame) -> DataFrame:
     """
     Joint Probability Distribution Function
     :param: A list of
     :return:
     """
+    p = p.copy()
     p_cols = list(p)
     total_count = len(p)
-    p[PROB_COLUMN_NAME] = 0.0
+    p[PROB_COL] = 0.0
     p = p.groupby(p_cols).count()
-    prob = p[PROB_COLUMN_NAME] / total_count
-    p[PROB_COLUMN_NAME] = prob
+    prob = p[PROB_COL] / total_count
+    p[PROB_COL] = prob
     return p
 
 
-def cprobs(hyp: pd.DataFrame, given: pd.DataFrame=None) -> pd.DataFrame:
+def cprobs(hyp: DataFrame, given: DataFrame=None) -> DataFrame:
     """
     Conditional Probability - P( hyp | given )
     The probability of 'hyp' in state 'h' given that.. 'given' is in stage 'g'
@@ -57,16 +61,16 @@ def cprobs(hyp: pd.DataFrame, given: pd.DataFrame=None) -> pd.DataFrame:
     df = df.groupby(cols).sum()
 
     # Only get the levels that correspond to the 'given' columns.
-    # ~ we start where 'hyp' ends and finish where 'given' ends
+    # ~ we start where 'hyp' ends and finish where 'given' begins
     keys = []
-    for k in range(len(hyp_cols) - 1, len(hyp_cols + given_cols) - 1):
+    for k in range(len(hyp_cols), len(hyp_cols + given_cols)):
         level = df.index.get_level_values(k).values
         keys.append(level)
 
-    # Group by and the 'given' levels, and then project the sum back onto the
+    # Group by the 'given' levels, and then project the sum back onto the
     # original df. This will give us the sum for each distinct combination of
     # all cols, and the sum for each group relative to the 'give' columns.
-    # Aka we setup to find the conditional probabilities
+    # ie we setup to find the conditional probabilities
     grouping = df.groupby(keys)
     df['g_sum'] = grouping['sum'].transform(sum)
 
