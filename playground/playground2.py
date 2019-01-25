@@ -2,7 +2,7 @@ from utilities.pyutils import as_tuple, combine_dfs, unique_values, column_names
 from probability.mvprob import probs, probs_dict
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.impute import SimpleImputer
-from information.entropy2 import EntroPy
+from information.entropy import EntroPy
 import matplotlib.pyplot as plt
 import numpy as np
 from typing import Tuple
