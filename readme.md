@@ -17,18 +17,10 @@ Information entropy is the average rate at which information is produced by a st
 
 ![](./resources/images/tex_entropy.png)
 
-## What is Entropy?
-
-Entropy is a measure of how unpredictable something is. **High Unpredictability, High Entropy.** An example of high entropy is an orinary coin, say a quarter. If you're asked to predict the next coin flip what would you choose? It's 50-50 chance of heads or tails so the best you can do is randomly guess. The situation is unpredictable so it has **High Entropy**. Now lets consider a different example and image you opened a book and, without looking, point to a random letter anywhere in the book. If you were told you would win a million dollars if you can  correctly guess the letter. What letter would you choose? Looking at the leter frequencies for English we can see that some letter are more frequent than others. Thus we have some predictability and the entopry is not as high as a situation where each letter was equally likely.
-
-![](./resources/images/entropy_intro/letter_frequency.png)
 
 
 
 
-### **Relationship between Probabilities and YES/NO Questions**
-
-We will now explain how **Unpredictability** and **Entropy.** are related, and in doing so we will learn a relationship between the **Probability* of a random variable, ***X*** in state ***x***, occurring and the number of **YES/NO Questions** it would take to figure out what what state ***X*** is in.
 
 ![](./resources/images/entropy_intro/tree_basic.png)
 
