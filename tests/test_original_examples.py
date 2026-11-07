@@ -3,7 +3,7 @@ import pandas as pd
 import unittest
 
 
-class EntroPyTests(unittest.TestCase):
+class OriginalExampleTests(unittest.TestCase):
 
     # ------------------------------------------------------------
     # Shannon Entropy Tests

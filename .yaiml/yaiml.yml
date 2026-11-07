@@ -1,0 +1,18 @@
+yaiml:
+  version: "0.2.0"
+  core:
+    state: SOT.md
+    architecture: ARCHITECTURE.md
+    maintainer_guide: MAINTAINER_GUIDE.md
+    changes: changes.md
+  supporting:
+    operating_guide: YAIML_GUIDE.md
+    versioning: VERSIONING.md
+    change_records: CHANGE_RECORDS.md
+    skills: skills/INDEX.md
+    yaimlacp: YAIMLACP.md
+    usage: ../readme.md
+    local_demo: ../docs/LOCAL_DEMO.md
+    methods_and_visual_direction: ../docs/methods.md
+    applied_source: source-manifest.json
+    acquired_material_notice: YAIML_NOTICE.md

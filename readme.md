@@ -1,138 +1,189 @@
-# Entropy Wiki
+# EntroPy
 
-| **TYPE**            | **EQUATION**                                                                                     | **VENN DIAGRAM**                                                                                  |
-|---------------------|--------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------:|
-| [Entropy](#entropy)             | ![](./resources/images/tex_entropy.png)             |                                               ![](./resources/images//venn_entropy_3.png)         |
-| [Cross Entropy](#cross-entropy)       | ![](./resources/images/tex_cross_entropy.png)       | ![](./resources/images/venn_cross_entropy_2.png)       |
-| [Relative Entropy](#relative-entropy)       | ![](./resources/images/tex_relative_entropy.png)       | ![](./resources/images/venn_relative_entropy_2.png)       |
-| [Joint Entropy](#joint-entropy)       | ![](./resources/images/tex_joint_entropy.png)       | ![](./resources/images/venn_joint_entropy.png)       |
-| [Conditional Entropy](#conditional-entropy) | ![](./resources/images/tex_conditional_entropy.png) | ![](./resources/images/venn_conditional_entropy.png) |
-| [Mutual Information](#mutual-information)  | ![](./resources/images/tex_mutual_information.png)  | ![](./resources/images/venn_mutual_information.png)  |
-| [Independent Entropy](#independent-entropy)  | ![](./resources/images/tex_independent_entropy.png)  | ![](./resources/images/venn_independent_entropy.png)  |
+**Explore what information can tell you—with data already included.**
 
+A local, interactive continuation of Sam's entropy lessons and time-series
+experiments. Pick a city or a built-in story, read a concrete finding, and mix
+up a clue to discover why information depends on how observations line up.
+The Python library also measures uncertainty, ranks feature associations, and
+compares current and reference samples through its CLI and API.
 
-# Entropy
+## Open the browser workbench
 
-Information entropy is the average rate at which information is produced by a stochastic source of data. The measure of information entropy associated with each possible data value
+Requires **Python 3.10+** (3.12 recommended). No API keys or spreadsheets needed.
 
-![](./resources/images/tex_entropy.png)
+```sh
+git clone --branch feature/jw-1 https://github.com/wirsingj/EntroPy.git
+cd EntroPy
+python run.py
+```
 
+Use `python3` on macOS/Linux if needed. The launcher sets up `.venv` and opens
+**http://127.0.0.1:8765**. Keep the terminal open; **Ctrl+C** stops the app.
+First setup needs internet. See the **[local run guide and three-minute demo](docs/LOCAL_DEMO.md)**
+for manual setup, troubleshooting, and a walkthrough to share with Sam.
 
+- **What goes with rain?** Automatically fetch recent historical weather for
+  six cities. See the strongest clue, rainy-hour counts, dates, and source.
+- **Does a warning light mean trouble?** Learn from a fictional machine with a
+  perfect temperature clue, an imperfect warning light, and an irrelevant room.
+- **Do stocks move together?** Explore six companies from Sam's original data,
+  with company names and explanations instead of unexplained ticker symbols.
+- **Mix up a clue.** Compare original and shuffled pairs while keeping each
+  variable's counts unchanged. Watch shared information change.
 
+Stock and machine stories work offline. The weather source is Open-Meteo/ERA5;
+its model-based archive ends seven days ago, and requests are cached for 30 minutes.
+Explanations are calculated from the data; no AI API or generated predictions.
+CSV uploads remain optional under settings (3 MB, 50,000 rows, 60 columns).
+They stay local and are not saved by the server. Findings export includes source
+metadata; the CLI supports larger offline analyses.
 
+![EntroPy explaining a real weather pattern, with source dates, everyday counts, and a shuffle experiment.](resources/images/guide/workbench-preview.jpg)
 
+The stock example comes from Sam's original bundled price history, using six
+symbols from 2013–2017. It compares **same-day** daily moves, categorized as
+down below −0.5%, up above +0.5%, or flat otherwise. It explores historical
+relationships; it does not predict returns. See the [methods guide](docs/methods.md)
+for the sample's transformation and interpretation limits.
 
-![](./resources/images/entropy_intro/tree_basic.png)
+![Signal audit of a synthetic sensor dataset: thermal state shares 1 bit with the fault outcome, alarm shares 0.278 bits, and zone and batch share none.](resources/images/guide/signal-audit.svg)
 
+## Try it in a minute
 
+Requires Python 3.10 or newer. From this checkout, preferably in a virtual environment:
 
-<table width="100%">
-  <tr>
-    <th width="50%"><b>Example 1</b></th>
-    <th width="50%"><b>Example 2</b></th>
-  </tr>
-  <tr>
-    <td width="50%">In Example 1 Alice selects a random letter A, B, C, or D. Each with a 1/4 chance of being selected. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
-    <td width="50%">In Example 2 Alice again selects a random letter, but this time the probabilities of each letter has changed to: A = 1/2, B = 1/4, C = 1/8 and D = 1/8. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
-  </tr>
-  <tr>
-    <td width="50%" align="center"><img src="./resources/images/intro/symbol_a_alice_bob.png" /></td>
-    <td width="50%" align="center"><img src="./resources/images/intro/symbol_b_alice_bob.png" /></td>
-  </tr>
-  <tr>
-    <td width="100%" colspan="2">
-      <p>Entropy is defined as the average number of yes/no question. To calculate the entropy we will figure out how many YES/NO each example requires. The most effcient way to guess the letter is to ask questions that split the remain choses in half.</p>
-    </td>
-    </tr>
-    <tr> 
-    <td width="100%" align="center" colspan="2">
-      <img height="70%" widtch="70%" src="./resources/images/intro/entropy_explain_1.png" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">In Example 1 The most efficient way for Bob to guess, with YES/NO question, which letter Alice chose is to make guesses that split the remaining choses in half. The following is an example for the give probabilities.</td>
-    <td width="50%">In Example 2 Alice again selects a random letter, but this time the probabilities of each letter has changed to: A = 1/2, B = 1/4, C = 1/8 and D = 1/8. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
-  </tr>
-  <tr>
-    <td width="50%" align="center"><img src="./resources/images/intro/symbol_a_questons.png" /></td>
-    <td width="50%" align="center"><img src="./resources/images/intro/symbol_b_questons.png" /></td>
-  </tr>
-  <tr>
-    <td width="100%" colspan="2" align="center">
-      <img height="70%" widtch="70%" src="./resources/images/intro/entropy_explain_2.png" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">In Example 1 Alice selects a random letter A, B, C, or D. Each with a 1/4 chance of being selected. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
-    <td width="50%">In Example 2 Alice again selects a random letter, but this time the probabilities of each letter has changed to: A = 1/2, B = 1/4, C = 1/8 and D = 1/8. If Bob had to guess which letter Alice chose with YES/NO questions, how many questions on average would you expect Bob to ask?</td>
-  </tr>
-  <tr>
-    <td width="50%" align="center"><img src="./resources/images/intro/symbol_a_num_questions_2.png" /></td>
-    <td width="50%" align="center"><img src="./resources/images/intro/symbol_b_num_questions.png" /></td>
-  </tr>
-</table>
+```sh
+python -m pip install -e .
+python -m information demo
+```
 
+The demo writes a readable `audit.json`, an SVG figure, a PNG preview, and both
+input CSVs to `demo-output/`. Everything runs locally. The installed command
+`entropy-audit demo` does the same thing; `python driver.py` is a shortcut.
 
+The synthetic example contains 160 observations of a device. The target is
+`fault`. Its relationships are known by construction:
 
-# Entropy Equation
+| Signal | Shared information | What to notice |
+| --- | ---: | --- |
+| `thermal_state` | 1.000 bits | A perfect indicator of the target |
+| `alarm` | 0.278 bits | An indicator flipped on 20% of observations |
+| `zone` | 0.000 bits | Independent of the target |
+| `batch` | 0.000 bits | Constant; carries no information |
 
-![](./resources/images/intro/entropy_explain_1.png)
+The reference has a 25% fault rate; the current sample has 50%. Their fault
+marginals differ by **0.208 bits of KL divergence**. These are illustrative
+relationships, not measurements from real devices.
 
-![](./resources/images/intro/entropy_explain_2.png)
+## Audit your own observations
 
-![](./resources/images/intro/entropy_explain_3.png)
+One row per observation, one column per variable. Choose the outcome you want
+to understand and remove identifiers or columns derived from that outcome.
 
+```sh
+entropy-audit analyze observations.csv --target outcome --output audit-output
+```
 
+Add an earlier sample to inspect distribution drift:
 
- 
-# Cross Entropy
+```sh
+entropy-audit analyze observations.csv --target outcome --reference baseline.csv --output audit-output
+```
 
-In information theory, the cross entropy between two probability distributions *p* and *q* over the same underlying set of events measures the average number of bits needed to identify an event drawn from the set, if a coding scheme is used that is optimized for an "artificial" probability distribution *q*, rather than the "true" distribution *p*.
+For continuous numeric measurements, explicitly choose a bin count:
 
-![](./resources/images/venn_cross_entropy_2.png)
+```sh
+entropy-audit analyze measurements.csv --target fault --bins 8 --output audit-output
+```
 
-![](./resources/images/tex_cross_entropy.png)
+Numeric columns, including a numeric target, are binned when `--bins` is set.
+String categories and booleans stay discrete. Without it, every distinct value
+is a state. Missing values produce an actionable error; clean them deliberately
+before an audit. CSV types are inferred by pandas, so encode numeric-looking
+category identifiers as explicit strings when their spelling matters.
 
-# Relative Entropy 
-### ***(Kullback-Liebler Divergence)***
+The report ranks individual feature associations and compares each column's
+current distribution with its reference. The figure shows at most 12 entries
+per plot; JSON includes all entries, settings, and interpretation notes.
+Unseen reference states produce infinite drift, encoded as `null` plus
+`status: "unseen_in_reference"` in JSON. No implicit smoothing is applied.
 
+## Use the Python API
 
-In mathematical statistics, the Kullback–Leibler divergence (also called relative entropy) is a measure of how one probability distribution is different from a second, reference probability distribution.
+```python
+import pandas as pd
+from information import EntroPy, BitPy
 
-![](./resources/images/venn_relative_entropy_2.png)
+observed = pd.Series([0, 0, 0, 1], name="observed")
+reference = pd.Series([0] * 9 + [1], name="reference")
 
-![](./resources/images/tex_relative_entropy.png)
+EntroPy.shannon_entropy(observed)          # 0.811278 bits
+EntroPy.cross_entropy(observed, reference) # 0.944484 bits
+EntroPy.relative_entropy(observed, reference)  # 0.133206 bits
+BitPy(observed).as_df()                   # probabilities and per-state information
+```
 
-# Joint Entropy
+| Question | Function |
+| --- | --- |
+| How uncertain is X? | `shannon_entropy(x)` |
+| How uncertain is the pair? | `joint_entropy(x, y)` |
+| What remains unknown about X given Y? | `conditional_entropy(x, given=y)` |
+| How much information do X and Y share? | `mutual_information(x, y)` |
+| How costly is reference Q for observations P? | `cross_entropy(p, q)` |
+| How much does P differ from Q? | `relative_entropy(p, q)` |
+| Does the source's past add information about the target? | `transfer_entropy(target, source, lag=1)` |
 
-In information theory, joint entropy is a measure of the uncertainty associated with a set of variables.
+Inputs are pandas Series or DataFrames containing observations, **not arrays of
+probability weights**. Multiple columns form joint states. Paired measures
+require matching row indexes and order; distribution comparisons may have
+different sample sizes and match columns by position.
 
-![](./resources/images/venn_joint_entropy.png)
+Transfer entropy takes the target first, source second. Sort and regularly
+sample time series before calling it. `lag` is a number of rows, with one past
+state per variable. It measures directional statistical information; it does
+not establish causation.
 
-![](./resources/images/tex_joint_entropy.png)
+## Understand the measures
 
+![Even odds have 2 bits of entropy, a skewed distribution has 1.75 bits, and a certain outcome has 0 bits.](resources/images/guide/uncertainty.svg)
 
-# Conditional Entropy
+![Shared and conditional information decompose uncertainty; transfer entropy adds the time direction.](resources/images/guide/relationships.svg)
 
-n information theory, the conditional entropy (or equivocation) quantifies the amount of information needed to describe the outcome of a random variable *y* given that the value of another random variable *x* is known.
+The [methods guide](docs/methods.md) covers equations, common bin boundaries,
+zero-probability events, transfer direction, interpretation limits, and sources.
+Empirical information can be inflated by sparse samples or unique identifiers.
+Use these results to investigate a dataset, then validate what you find.
 
-![](./resources/images/venn_conditional_entropy.png)
+## Develop and verify
 
-![](./resources/images/tex_conditional_entropy.png)
+```sh
+python -m pip install -e ".[dev]"
+python -m unittest discover -v
+python scripts/render_graphics.py
+python -m build
+```
 
-# Mutual Information
+Tests cover known mathematical answers, random distributions checked against
+SciPy, missing support, shared bins, conditional probabilities, directional
+transfer, aligned dates, and the complete CSV-to-report workflow. GitHub Actions
+runs the suite, demo, and package build on Python 3.10, 3.12, and 3.14.
 
-In probability theory and information theory, the mutual information (MI) of two random variables is a measure of the mutual dependence between the two variables.
+## Changes from the original experiment
 
-![](./resources/images/venn_mutual_information.png)
+The original project explored entropy and stock relationships in 2019. This
+version retains its small, inspectable Python API and develops it into a
+reproducible signal audit. Cross-entropy weighting, KL support, conditional
+probabilities, and transfer entropy have been corrected. The database-writing
+stock driver has been replaced by a local demo.
 
-![](./resources/images/tex_mutual_information.png)
+**API change:** `bins` now defaults to `None`, preserving discrete symbols.
+Pass `bins=10` explicitly for numeric binning. Comparisons use shared edges;
+results that depended on separately fitted ranges intentionally change.
+Missing data and misaligned paired observations now raise errors.
 
-
-# Independent Entropy
-
-In probability theory and information theory, the mutual information (MI) of two random variables is a measure of the mutual dependence between the two variables.
-
-![](./resources/images/venn_independent_entropy.png)
-
-![](./resources/images/tex_independent_entropy.png)
+Older notebooks, playground scripts, and source artwork remain as historical
+experiments. Their optional environments and local paths are not part of the
+supported audit workflow. New documentation figures are generated from
+`scripts/render_graphics.py`, with editable SVGs and PNG previews included in
+`resources/images/guide/`.

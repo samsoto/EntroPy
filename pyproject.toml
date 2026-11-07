@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "entropy-signal-audit"
+version = "0.2.0"
+description = "Understand uncertainty, feature relationships, and distribution drift in tabular data."
+readme = "readme.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "pandas>=2.0,<4", "matplotlib>=3.8,<4"]
+
+[project.optional-dependencies]
+dev = ["scipy>=1.10,<2", "build>=1.0"]
+
+[project.scripts]
+entropy-audit = "information.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["information*", "probability*", "utilities*"]
+
+[tool.setuptools.package-data]
+information = ["web_assets/*.html", "web_assets/*.css", "web_assets/*.js", "data/*.csv"]
