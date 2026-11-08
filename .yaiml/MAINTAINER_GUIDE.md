@@ -1,5 +1,5 @@
 ---
-yaiml-revision: "0.3.5c8c73de392f1650"
+yaiml-revision: "0.4.99f51d52118daa95"
 role: maintainer
 title: EntroPy maintainer guide
 purpose: Current setup, verification, recovery, and YAIML provenance.
@@ -54,6 +54,11 @@ browser console errors were reported. Remote CI and native mobile devices
 were not run. Local sdist/wheel builds and packaged web/data assets were checked separately
 from browser verification. A clean temporary checkout ran `run.py --setup-only`,
 installed dependencies, and passed real audit/shuffle smoke checks.
+
+GitHub README rendering was inspected after restoring Sam’s original artwork:
+all 28 referenced images loaded, including the 24 originals. PR #1 now displays
+the original Alice/Bob pair near the top and links directly to the full guide;
+both inline PR images were visually verified.
 
 ## Recovery and boundaries
 

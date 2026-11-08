@@ -1,5 +1,5 @@
 ---
-yaiml-revision: "0.3.5c8c73de392f1650"
+yaiml-revision: "0.4.99f51d52118daa95"
 role: changes
 title: EntroPy project changes
 purpose: Locate retained change records and the incorporated snapshot head.
@@ -9,11 +9,12 @@ budget: 250 words for the receipt, excluding retained records.
 update-when: A material iteration is finalized or pending records are consolidated.
 agent-guidance: Compare exact record IDs with the receipt before trusting snapshots.
 record-directory: changes/
-consolidated-revision: "0.3.5c8c73de392f1650"
+consolidated-revision: "0.4.99f51d52118daa95"
 incorporated-records:
   - "0.1.46b565251e398e76"
   - "0.2.3f17925fbf81560c"
   - "0.3.5c8c73de392f1650"
+  - "0.4.99f51d52118daa95"
 ---
 # Project changes
 
