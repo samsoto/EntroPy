@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Generated audit reports (the checked-in README example lives in resources/)
+audit-output/
+demo-output/

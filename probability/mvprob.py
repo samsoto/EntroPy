@@ -1,84 +1,50 @@
-from pandas import DataFrame
+"""Joint and conditional frequencies of observed discrete states."""
+
 import pandas as pd
-import numpy as np
 
-PROB_COL = 'prob'
+from utilities.pyutils import as_frame, combine_dfs
 
-
-def probs_dict(p: DataFrame, given: DataFrame=None) -> dict:
-    return probs(p, given=given, reset_index=False).to_dict()[PROB_COL]
+PROB_COL = "prob"
 
 
-def probs(p: DataFrame, key: str=None, given: DataFrame=None, reset_index: bool=True) -> DataFrame:
-    p = p.copy()
-    df = jprobs(p) if given is None else cprobs(p, given=given)
-    col = f'{PROB_COL}_{key}'
-    df.columns = [col]
-    df = df.reset_index() if reset_index else df
-    return df
+def probs_dict(p, given=None) -> dict:
+    return probs(p, given=given, reset_index=False)[PROB_COL].to_dict()
 
 
-def jprobs(p: DataFrame) -> DataFrame:
+def probs(p, key=None, given=None, reset_index=True) -> pd.DataFrame:
+    df = jprobs(p) if given is None else cprobs(p, given)
+    probability_name = PROB_COL if key is None else f"{PROB_COL}_{key}"
+    df.columns = [probability_name]
+    if reset_index and probability_name in df.index.names:
+        # An input symbol column may itself be named 'prob'. Preserve its
+        # values while giving reset_index a noncolliding output label.
+        names = list(df.index.names)
+        for i, name in enumerate(names):
+            if name == probability_name:
+                replacement = f"state_{i}"
+                while replacement in names or replacement == probability_name:
+                    replacement = "_" + replacement
+                names[i] = replacement
+        df.index = df.index.set_names(names)
+    return df.reset_index() if reset_index else df
+
+
+def jprobs(p) -> pd.DataFrame:
+    """P(state); only observed states are included."""
+    p = as_frame(p)
+    counts = p.groupby(list(p), observed=True, sort=False).size()
+    return (counts / len(p)).to_frame(PROB_COL)
+
+
+def cprobs(hyp, given) -> pd.DataFrame:
+    """P(hyp | given) for rows aligned by identical indexes and order.
+
+    Output index levels contain hypothesis states, followed by given states.
+    Combined column labels are positional, so identical input labels are safe.
     """
-    Joint Probability Distribution Function
-    :param: A list of
-    :return:
-    """
-    p = p.copy()
-    p_cols = list(p)
-    total_count = len(p)
-    p[PROB_COL] = 0.0
-    p = p.groupby(p_cols).count()
-    prob = p[PROB_COL] / total_count
-    p[PROB_COL] = prob
-    return p
-
-
-def cprobs(hyp: DataFrame, given: DataFrame=None) -> DataFrame:
-    """
-    Conditional Probability - P( hyp | given )
-    The probability of 'hyp' in state 'h' given that.. 'given' is in stage 'g'
-    Strategy: Group by all of the columns (hyp + given) and find the total.
-    Then group by the 'given' columns and find the totals relative to the
-    'given' cols. Then divide these two totals to find the conditional probabilities
-    :param hyp: The hypothesis variable.
-    :param given: The given variable
-    :return: A DataFrame of the conditional probabilities, P( hyp | given )
-    Key: '(hyp, give)'
-    Value: Conditional probabilities
-    """
-    # Get column names
-    hyp_cols = list(hyp)
-    given_cols = list(given)
-    cols = hyp_cols + given_cols
-
-    # Combine hyp and given (column-wise)
-    df = pd.concat([hyp, given], axis=1, join_axes=[hyp.index])
-    df['sum'] = 1
-
-    # Group by all of the cols to get the
-    # total number of each distinct pair
-    df = df.groupby(cols).sum()
-
-    # Only get the levels that correspond to the 'given' columns.
-    # ~ we start where 'hyp' ends and finish where 'given' begins
-    keys = []
-    for k in range(len(hyp_cols), len(hyp_cols + given_cols)):
-        level = df.index.get_level_values(k).values
-        keys.append(level)
-
-    # Group by the 'given' levels, and then project the sum back onto the
-    # original df. This will give us the sum for each distinct combination of
-    # all cols, and the sum for each group relative to the 'give' columns.
-    # ie we setup to find the conditional probabilities
-    grouping = df.groupby(keys)
-    df['g_sum'] = grouping['sum'].transform(sum)
-
-    # Calculate the conditional probabilities by taking the
-    # sum of each distinct combination of all cols, divided
-    # by the sum for each group relative to the 'give' columns.
-    df['prob'] = df['sum'] / df['g_sum']
-    df = df.drop('g_sum', axis=1)
-    df = df.drop('sum', axis=1)
-
-    return df
+    hyp, given = as_frame(hyp), as_frame(given)
+    df = combine_dfs(hyp, given)
+    counts = df.groupby(list(df), observed=True, sort=False).size()
+    levels = list(range(hyp.shape[1], df.shape[1]))
+    totals = counts.groupby(level=levels, observed=True).transform("sum")
+    return (counts / totals).to_frame(PROB_COL)

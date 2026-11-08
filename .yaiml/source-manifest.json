@@ -1,0 +1,134 @@
+{
+  "repository": "https://github.com/wirsingj/YAIML",
+  "ref": "refs/tags/latest",
+  "commit": "b9b53e8b3725d25da64dfd4c51e209f9ffb7bfd7",
+  "product_release": "0.6.0",
+  "release_status": "experimental",
+  "resources": [
+    {
+      "source": "LICENSE.md",
+      "destination": ".yaiml/YAIML_NOTICE.md",
+      "git_blob_sha": "ee7d51285e6568edee982aa96f32b54821cd258d"
+    },
+    {
+      "source": "reference/skills/INDEX.md",
+      "destination": ".yaiml/skills/INDEX.md",
+      "git_blob_sha": "a7c9552496158ef5b0e8c024ca6a4f84d6271053"
+    },
+    {
+      "source": "reference/YAIML_GUIDE.md",
+      "destination": ".yaiml/YAIML_GUIDE.md",
+      "git_blob_sha": "696bdb40553067a345c1fe3b93e6f51291fc70f1"
+    },
+    {
+      "source": "reference/VERSIONING.md",
+      "destination": ".yaiml/VERSIONING.md",
+      "git_blob_sha": "ded8c0f31a4c42abdede6dfe379bb860617ec1ac"
+    },
+    {
+      "source": "reference/CHANGE_RECORDS.md",
+      "destination": ".yaiml/CHANGE_RECORDS.md",
+      "git_blob_sha": "971e0b8ffb1c6f9f5f83ce33e4af5b4152883a0b"
+    },
+    {
+      "source": "reference/BOOTSTRAP.md",
+      "destination": ".yaiml/BOOTSTRAP.md",
+      "git_blob_sha": "0352633c9913fa20fb3c0631fb64d3d928266394"
+    },
+    {
+      "source": "reference/YAIMLACP.md",
+      "destination": ".yaiml/YAIMLACP.md",
+      "git_blob_sha": "aefaee1af8c3c9d1fb90a20a2bc08a035a048b41"
+    },
+    {
+      "source": "reference/templates/core/ARCHITECTURE.md",
+      "destination": ".yaiml/templates/core/ARCHITECTURE.md",
+      "git_blob_sha": "1d0d53d5489efbf354d00eda114a43ec7ca40c57"
+    },
+    {
+      "source": "reference/templates/core/MAINTAINER_GUIDE.md",
+      "destination": ".yaiml/templates/core/MAINTAINER_GUIDE.md",
+      "git_blob_sha": "0a0f41b75d1fc28dfe1e7d29a01d90e8143f931b"
+    },
+    {
+      "source": "reference/templates/core/SOT.md",
+      "destination": ".yaiml/templates/core/SOT.md",
+      "git_blob_sha": "e384de16ea056ac55dc206194a7db0d1ca4be437"
+    },
+    {
+      "source": "reference/templates/core/changes.md",
+      "destination": ".yaiml/templates/core/changes.md",
+      "git_blob_sha": "23a9e75fe602a95b1992236769d3ee15e8a352f6"
+    },
+    {
+      "source": "reference/skills/yaiml-init/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-init/SKILL.md",
+      "git_blob_sha": "07476a4fd4704a6608467335c4a3d803a807e468"
+    },
+    {
+      "source": "reference/skills/yaiml-orient/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-orient/SKILL.md",
+      "git_blob_sha": "44c38ac8fa38e3ce49c66a2a9aecae330f8d20a8"
+    },
+    {
+      "source": "reference/skills/yaiml-maintain/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-maintain/SKILL.md",
+      "git_blob_sha": "577c262294daa956578db87b5f57787ce1f8b8c8"
+    },
+    {
+      "source": "reference/skills/yaiml-audit/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-audit/SKILL.md",
+      "git_blob_sha": "53cb9ad415ca7785ea68d6b583c2309316179dc3"
+    },
+    {
+      "source": "reference/skills/yaiml-to-do/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-to-do/SKILL.md",
+      "git_blob_sha": "e2c81d8a2cfc56da8a077cfc2a2609c81891dd3f"
+    },
+    {
+      "source": "reference/skills/yaiml-verify/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-verify/SKILL.md",
+      "git_blob_sha": "fc17456166705ed8026f9505f29a39ece4bc7d21"
+    },
+    {
+      "source": "reference/skills/yaiml-diagram/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-diagram/SKILL.md",
+      "git_blob_sha": "804abd996ddbc793def91b993a72b32de7ac56fb"
+    },
+    {
+      "source": "reference/skills/yaiml-grow/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-grow/SKILL.md",
+      "git_blob_sha": "afa00c241738bc9bffa9918e7738c647a3062cac"
+    },
+    {
+      "source": "reference/skills/yaiml-refresh/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-refresh/SKILL.md",
+      "git_blob_sha": "16c416b9fe26bde1a24a4e3a6c45a99bd4115c49"
+    },
+    {
+      "source": "reference/skills/yaiml-git/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-git/SKILL.md",
+      "git_blob_sha": "db25928ad7617299de4d62a016fc82a5087e319d"
+    },
+    {
+      "source": "reference/skills/yaiml-compress/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-compress/SKILL.md",
+      "git_blob_sha": "6859fd91c160f1ec036321a2150b856094153647"
+    },
+    {
+      "source": "reference/skills/yaiml-realign/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-realign/SKILL.md",
+      "git_blob_sha": "85bea107d274f50222a37b60eb87d913232b1849"
+    },
+    {
+      "source": "reference/skills/yaiml-work-priorities/SKILL.md",
+      "destination": ".yaiml/skills/yaiml-work-priorities/SKILL.md",
+      "git_blob_sha": "09fc9372264bf4895e8769d6cb9a5f8434182938"
+    },
+    {
+      "source": "reference/skills/yaiml-diagram/references/DRAWIO.md",
+      "destination": ".yaiml/skills/yaiml-diagram/references/DRAWIO.md",
+      "git_blob_sha": "92c968369712df290d109db74c36bd1f80090371"
+    }
+  ]
+}

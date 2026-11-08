@@ -1,117 +1,103 @@
-from utilities.pyutils import combine_dfs, column_names
-from probability.mvprob import probs_dict
-from information.bitpy import BitPy, BITS_COL, PROB_COL
-from pandas import DataFrame
+"""Empirical information measures for discrete observations, in bits."""
+
+from collections import Counter
 from math import log2
 
+import pandas as pd
 
-class EntroPy(object):
+from information.bitpy import BitPy
+from utilities.pyutils import as_frame, combine_dfs, discretize, discretize_pair
+
+
+def _distribution(frame):
+    counts = Counter(frame.itertuples(index=False, name=None))
+    return {state: count / len(frame) for state, count in counts.items()}
+
+
+def _entropy(frame):
+    return -sum(p * log2(p) for p in _distribution(frame).values())
+
+
+def _paired(x, y, bins):
+    x, y = as_frame(x), as_frame(y)
+    combine_dfs(x, y)  # validate observation alignment before grouping/resetting
+    return discretize(x, bins), discretize(y, bins)
+
+
+class EntroPy:
+    """Each row is an observation; multiple columns form a joint state.
+
+    Values are discrete symbols by default. Pass ``bins`` explicitly to bin
+    numeric columns. Paired measures require identical row indexes and order.
+    Distribution comparisons match columns by position, not by column name.
+    """
 
     @staticmethod
-    def shannon_entropy(x: DataFrame, bins: int=10) -> float:
-        """
-        Information entropy is the average rate at which information
-        is produced by a stochastic source of data. The measure of
-        information entropy associated with each possible data value.
-        :param x:
-        :param bins:
-        :return:
-        """
+    def shannon_entropy(x: pd.DataFrame, bins: int | None = None) -> float:
+        """H(X): average uncertainty per observation, in bits."""
         return BitPy(x, bins=bins).entropy
 
     @staticmethod
-    def joint_entropy(x: DataFrame, y: DataFrame, bins: int=10) -> float:
-        """
-        Information entropy is the average rate at which information
-        is produced by a stochastic source of data. The measure of
-        information entropy associated with each possible data value.
-        :param x:
-        :param y:
-        :param bins:
-        :return:
-        """
-        xy = combine_dfs(x, y)
-        return EntroPy.shannon_entropy(xy, bins=bins)
+    def joint_entropy(x, y, bins: int | None = None) -> float:
+        """H(X,Y) for paired observations."""
+        x, y = _paired(x, y, bins)
+        return _entropy(combine_dfs(x, y))
 
     @staticmethod
-    def cross_entropy(x: DataFrame, y: DataFrame, bins: int=10) -> float:
-        """
-        In information theory, the cross entropy between two probability
-        distributions x and y over the same underlying set of events measures
-        the average number of bits needed to identify an event drawn from
-        the set, if a coding scheme is used that is optimized for an "artificial"
-        probability distribution y, rather than the "true" distribution x.
-        :param x:
-        :param y:
-        :param bins:
-        :return:
-        """
-        x = BitPy(x, bins=bins).bits()
-        y = BitPy(y, bins=bins).probs()
-        z = x.join(y, how='inner')
-        return (z[PROB_COL] * z[BITS_COL]).sum()
+    def conditional_entropy(x, given, bins: int | None = None) -> float:
+        """H(X|given): uncertainty remaining after observing ``given``."""
+        x, given = _paired(x, given, bins)
+        return max(0.0, _entropy(combine_dfs(x, given)) - _entropy(given))
 
     @staticmethod
-    def relative_entropy(x: DataFrame, y: DataFrame, bins: int=10) -> float:
+    def cross_entropy(x, y, bins: int | None = None) -> float:
+        """H(P,Q) = -sum P log2 Q; X is observed, Y is the reference.
+
+        Numeric bins use a shared range across both samples. If Q assigns zero
+        mass to an observed P state, return infinity. No smoothing is applied.
         """
-        Also know as: 'kullback-Leibler Divergence' Defined as:
-        D_kl(X||Y) = SUM_i p(x_i) / p(y_i). X and Y are two probability
-        distribution over the same set of symbols. In a sense relative entropy
-        measures the distance between two probability distributions.
-        :param x: Data frame X
-        :param y: Data frame Y
-        :param bins:
-        :return: the difference between the cross
-        entropy of (X and Y), and the entropy of X
-        amd
-        """
-        entropy = EntroPy.shannon_entropy(x, bins=bins)
-        cross_entropy = EntroPy.cross_entropy(x, y, bins=bins)
-        return cross_entropy - entropy
+        x, y = discretize_pair(x, y, bins)
+        p, q = _distribution(x), _distribution(y)
+        if any(state not in q for state in p):
+            return float("inf")
+        return -sum(prob * log2(q[state]) for state, prob in p.items())
 
     @staticmethod
-    def mutual_information(x: DataFrame, y: DataFrame, bins: int=10) -> float:
-        """
-        In probability theory and information theory, the mutual
-        information (MI) of two random variables is a measure of
-        the mutual dependence between the two variables.
-        :param x:
-        :param y:
-        :param bins:
-        :return:
-        """
-        entropy_x = EntroPy.shannon_entropy(x, bins=bins)
-        entropy_y = EntroPy.shannon_entropy(y, bins=bins)
-        joint_entropy = EntroPy.joint_entropy(x, y, bins=bins)
-        return entropy_x + entropy_y - joint_entropy
+    def relative_entropy(x, y, bins: int | None = None) -> float:
+        """D_KL(P||Q) = sum P log2(P/Q), with the same support rules as CE."""
+        x, y = discretize_pair(x, y, bins)
+        p, q = _distribution(x), _distribution(y)
+        if any(state not in q for state in p):
+            return float("inf")
+        value = sum(prob * log2(prob / q[state]) for state, prob in p.items())
+        return max(0.0, value)  # absorb floating-point roundoff at zero
 
     @staticmethod
-    def transfer_entropy(x: DataFrame, y: DataFrame) -> float:
+    def mutual_information(x, y, bins: int | None = None) -> float:
+        """I(X;Y): shared information between paired observations."""
+        x, y = _paired(x, y, bins)
+        return max(0.0, _entropy(x) + _entropy(y) - _entropy(combine_dfs(x, y)))
+
+    @staticmethod
+    def transfer_entropy(x, y, bins: int | None = None, lag: int = 1) -> float:
+        """Information from Y's past about X's future, beyond X's past.
+
+        Direction is ``y -> x`` (target first, source second), preserving the
+        original argument order. Computes I(X[t]; Y[t-lag] | X[t-lag]) using
+        one historical observation per variable, not a multi-step embedding.
+        Rows must already be in chronological order at a regular sampling rate.
+        Bins are fitted to each complete series before time slices are formed.
         """
-
-        :param x:
-        :param y:
-        :return:
-        """
-        x_future = x[1:]  # t: 1 -> n
-        x_present = x[:-1]  # t: 0 -> n-1
-        y_present = y[:-1]  # t: 0 -> n-1
-        x_future = column_names(x_future, postfix='2')
-        x_future = x_future.reset_index(drop=True)
-        xy_present = combine_dfs(x_present, y_present)
-        xf_xp_yp = combine_dfs(x_future, x_present, y_present)
-        a_prob = probs_dict(xf_xp_yp)
-        n_prob = probs_dict(x_future, given=xy_present)
-        d_prob = probs_dict(x_future, given=x_present)
-        te = 0.0
-        for key in a_prob:
-            at1, at, bt = key
-            weight = a_prob[(at1, at, bt)]
-            subtractive = d_prob[(at1, at)]
-            additive = n_prob.get((at1, at, bt)) or 0.0
-            if additive != 0.0 and subtractive != 0.0:
-                x = weight * log2(additive / subtractive)
-                te = te + x
-        return te
-
-
+        x, y = _paired(x, y, bins)
+        if isinstance(lag, bool) or not isinstance(lag, int) or not 1 <= lag < len(x):
+            raise ValueError("lag must be an integer from 1 to n_observations - 1")
+        future = x.iloc[lag:].reset_index(drop=True)
+        past = x.iloc[:-lag].reset_index(drop=True)
+        source = y.iloc[:-lag].reset_index(drop=True)
+        value = (
+            _entropy(combine_dfs(future, past))
+            + _entropy(combine_dfs(past, source))
+            - _entropy(past)
+            - _entropy(combine_dfs(future, past, source))
+        )
+        return max(0.0, value)

@@ -19,25 +19,75 @@ def as_tuple(*objects: Any) -> tuple:
     return tpl
 
 
-def discretize(df: DataFrame, bins: int) -> DataFrame:
-    df = df.copy()
-    for x in list(df):
-        df[x] = pd.cut(df[x], bins=bins, labels=np.arange(bins), right=True)
+def as_frame(data) -> DataFrame:
+    """Validate observations without silently dropping missing rows."""
+    if isinstance(data, pd.Series):
+        data = data.to_frame()
+    if not isinstance(data, pd.DataFrame):
+        raise TypeError("observations must be a pandas DataFrame or Series")
+    if data.empty:
+        raise ValueError("observations must contain at least one row and column")
+    if not data.columns.is_unique:
+        raise ValueError("input column names must be unique")
+    if data.isna().any().any():
+        raise ValueError("observations contain missing values; clean them explicitly first")
+    for column in data:
+        if pd.api.types.is_numeric_dtype(data[column]):
+            if not np.isfinite(data[column].to_numpy(dtype=float)).all():
+                raise ValueError("observations must contain only finite numeric values")
+    return data.copy()
+
+
+def _validate_bins(bins):
+    if bins is not None and (isinstance(bins, bool) or not isinstance(bins, int) or bins < 1):
+        raise ValueError("bins must be a positive integer or None")
+
+
+def _numeric(series):
+    return pd.api.types.is_numeric_dtype(series) and not pd.api.types.is_bool_dtype(series)
+
+
+def discretize(df: DataFrame, bins: int | None = None) -> DataFrame:
+    """Optionally bin numeric columns; preserve categorical symbols and booleans."""
+    df = as_frame(df)
+    _validate_bins(bins)
+    if bins is not None:
+        for column in df:
+            if _numeric(df[column]):
+                df[column] = pd.cut(df[column], bins=bins, labels=False, include_lowest=True)
     return df
+
+
+def discretize_pair(x, y, bins=None):
+    """Match distribution coordinates by position, using shared numeric bins."""
+    x, y = as_frame(x), as_frame(y)
+    _validate_bins(bins)
+    if x.shape[1] != y.shape[1]:
+        raise ValueError("distributions must have the same number of columns")
+    x.columns = y.columns = range(x.shape[1])
+    if bins is not None:
+        for column in x:
+            if _numeric(x[column]) != _numeric(y[column]):
+                raise ValueError("corresponding columns must both be numeric or both categorical")
+            if _numeric(x[column]):
+                pooled = pd.concat([x[column], y[column]], ignore_index=True)
+                codes = pd.cut(pooled, bins=bins, labels=False, include_lowest=True)
+                x[column] = codes.iloc[:len(x)].to_numpy()
+                y[column] = codes.iloc[len(x):].to_numpy()
+    return x, y
 
 
 def combine_dfs(*dfs: DataFrame) -> pd.DataFrame:
     """
-    Given a list of DataFrames combine
-    them into a Single DataFrames
-    :param dfs: List of DataFrames
-    :return: A single DataFrame
+    Combine paired observations, assigning unique positional column names.
+    Indexes must already match exactly; there is no implicit alignment/drop.
     """
-    df = pd.DataFrame()
-    for e in dfs:
-        if e is not None:
-            df = pd.concat([df, e], axis=1)
-    return df
+    frames = [as_frame(frame) for frame in dfs if frame is not None]
+    if not frames:
+        raise ValueError("at least one frame is required")
+    if any(not frame.index.equals(frames[0].index) for frame in frames[1:]):
+        raise ValueError("paired observations must have identical row indexes and order")
+    return pd.concat(frames, axis=1, ignore_index=True)
 
 
 def unique_values(*dfs: pd.DataFrame) -> List[Tuple]:
