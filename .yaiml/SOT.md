@@ -1,5 +1,5 @@
 ---
-yaiml-revision: "0.1.46b565251e398e76"
+yaiml-revision: "0.3.5c8c73de392f1650"
 role: sot
 title: EntroPy current state
 purpose: Current human direction, capabilities, evidence, and open decisions.
@@ -23,7 +23,10 @@ The user found raw tickers, thermal-state/alarm/batch/zone labels, file uploads,
 and unexplained statistics inaccessible. The app must bring its own data, tell
 users what results mean, and provide an interesting demonstration for Sam.
 Preserve the mathematical library rather than replacing it with generated
-claims. Root AGENTS.md retains visual preferences and publication boundaries.
+claims. The user explicitly wants Sam’s original pictures displayed in the
+README alongside the new work. Preserve those image files and visible examples
+in future documentation edits. Root AGENTS.md retains visual preferences and
+publication boundaries.
 
 The user subsequently authorized packaging on **feature/jw-1**, pushing, and
 opening a pull request with clear local instructions. Upstream access is read-only;

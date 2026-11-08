@@ -144,6 +144,62 @@ sample time series before calling it. `lag` is a number of rows, with one past
 state per variable. It measures directional statistical information; it does
 not establish causation.
 
+## Sam’s original illustrated guide
+
+Sam’s original pictures are part of the project. These are the illustrations
+from his 2019 README, alongside the new interactive demo and updated plots.
+
+### Alice and Bob: how many questions?
+
+Alice chooses a letter. Bob asks yes/no questions to discover it. Compare
+four equally likely letters with a distribution where some letters are much
+more common.
+
+<table>
+  <tr><th>Equal probabilities</th><th>Unequal probabilities</th></tr>
+  <tr><td>A, B, C, D each have probability 1/4.</td><td>A: 1/2, B: 1/4, C: 1/8, D: 1/8.</td></tr>
+  <tr>
+    <td><img src="resources/images/intro/symbol_a_alice_bob.png" alt="Sam’s Alice and Bob illustration with four equally likely letters"></td>
+    <td><img src="resources/images/intro/symbol_b_alice_bob.png" alt="Sam’s Alice and Bob illustration with unequal letter probabilities"></td>
+  </tr>
+  <tr><th colspan="2">Choose questions that split the remaining possibilities</th></tr>
+  <tr>
+    <td><img src="resources/images/intro/symbol_a_questons.png" alt="Yes/no question tree for equally likely letters"></td>
+    <td><img src="resources/images/intro/symbol_b_questons.png" alt="Yes/no question tree for unequally likely letters"></td>
+  </tr>
+  <tr><th colspan="2">Count the questions, weighted by how often each letter occurs</th></tr>
+  <tr>
+    <td><img src="resources/images/intro/symbol_a_num_questions_2.png" alt="Question counts for the equal-probability example"></td>
+    <td><img src="resources/images/intro/symbol_b_num_questions.png" alt="Question counts for the unequal-probability example"></td>
+  </tr>
+</table>
+
+![Sam’s original binary question tree](resources/images/intro/tree_basic.png)
+
+### From questions to entropy
+
+![Entropy as the average number of yes/no questions](resources/images/intro/entropy_explain_1.png)
+
+![Weighting the number of questions by each outcome’s probability](resources/images/intro/entropy_explain_2.png)
+
+![Sam’s illustrated derivation of the entropy equation](resources/images/intro/entropy_explain_3.png)
+
+### Original equations and Venn diagrams
+
+The original artwork and terminology are preserved here. The
+[methods guide](docs/methods.md) documents the current mathematical definitions
+and implementation contracts.
+
+| Measure | Original equation | Original diagram |
+| --- | --- | --- |
+| Entropy | ![Original entropy equation](resources/images/tex_entropy.png) | ![Original entropy diagram](resources/images/venn_entropy_3.png) |
+| Cross entropy | ![Original cross-entropy equation](resources/images/tex_cross_entropy.png) | ![Original cross-entropy diagram](resources/images/venn_cross_entropy_2.png) |
+| Relative entropy | ![Original relative-entropy equation](resources/images/tex_relative_entropy.png) | ![Original relative-entropy diagram](resources/images/venn_relative_entropy_2.png) |
+| Joint entropy | ![Original joint-entropy equation](resources/images/tex_joint_entropy.png) | ![Original joint-entropy diagram](resources/images/venn_joint_entropy.png) |
+| Conditional entropy | ![Original conditional-entropy equation](resources/images/tex_conditional_entropy.png) | ![Original conditional-entropy diagram](resources/images/venn_conditional_entropy.png) |
+| Mutual information | ![Original mutual-information equation](resources/images/tex_mutual_information.png) | ![Original mutual-information diagram](resources/images/venn_mutual_information.png) |
+| Independent entropy (original label) | ![Original independent-entropy equation](resources/images/tex_independent_entropy.png) | ![Original independent-entropy diagram](resources/images/venn_independent_entropy.png) |
+
 ## Understand the measures
 
 ![Even odds have 2 bits of entropy, a skewed distribution has 1.75 bits, and a certain outcome has 0 bits.](resources/images/guide/uncertainty.svg)

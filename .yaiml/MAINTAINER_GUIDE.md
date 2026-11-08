@@ -1,5 +1,5 @@
 ---
-yaiml-revision: "0.2.3f17925fbf81560c"
+yaiml-revision: "0.3.5c8c73de392f1650"
 role: maintainer
 title: EntroPy maintainer guide
 purpose: Current setup, verification, recovery, and YAIML provenance.
@@ -91,9 +91,10 @@ No other host instruction routes were found. Relevant existing usage and
 methods documents are indexed rather than copied.
 
 Local resources, reference paths, wrappers, discovery, and receipt can be
-checked without the source repository. **Fresh-session host auto-loading and
-native skill menu availability have not been observed.** Configuration and
-file-based usability are established; do not claim every method executed.
+checked without the source repository. On the next user turn, the host supplied
+metadata for all thirteen local skills, and the Git wrapper was read successfully.
+Native skill discovery is observed; a separate fresh-session startup, interactive
+menu behavior, and execution of every method remain unverified.
 Memory maintenance is offline. No polling, delegation, or backlog execution is
 authorized. Use YAIML_GUIDE.md and VERSIONING.md for maintenance; changes.md
 locates the retained audit. This task has one active writer, so its initial
